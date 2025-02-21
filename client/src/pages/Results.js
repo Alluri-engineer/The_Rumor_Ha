@@ -10,6 +10,7 @@ function Results() {
   const [rumors, setRumors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const { username, type } = location.state || {};
 
@@ -35,6 +36,22 @@ function Results() {
 
     fetchRumors();
   }, [username, type, navigate]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.pageYOffset > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   if (loading) {
     return <div className="results-loading">Loading...</div>;
@@ -65,6 +82,13 @@ function Results() {
           ))}
         </div>
       )}
+      <button 
+        className={`scroll-to-top ${showScrollButton ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+      >
+        ↑
+      </button>
     </div>
   );
 }

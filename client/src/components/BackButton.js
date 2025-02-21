@@ -8,7 +8,7 @@ function BackButton() {
   return (
     <div className="back-button-container">
       <button className="back-button" onClick={() => navigate(-1)}>
-        ← Back
+        Back
       </button>
     </div>
   );

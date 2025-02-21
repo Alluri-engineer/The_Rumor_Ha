@@ -6,18 +6,32 @@
   min-height: 100vh;
   padding: 24px;
   background: white;
+  position: relative;
 }
 
 .home-page-label {
-  display: none;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #E5E7EB;
+  color: #374151;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .home-title {
-  font-size: 64px;
-  margin-bottom: 80px;
-  color: var(--text);
-  font-weight: 400;
+  font-size: 96px;
+  margin-bottom: 120px;
+  color: #000000;
   font-family: 'Segoe Script', cursive;
+  font-weight: 400;
+  letter-spacing: -1px;
+  text-align: center;
+  line-height: 1;
+  transform: rotate(-2deg);
+  margin-top: -40px;
 }
 
 .home-buttons {
@@ -60,13 +74,20 @@
 }
 
 @media (max-width: 768px) {
+  .home-title {
+    font-size: 64px;
+    margin-bottom: 80px;
+    margin-top: -20px;
+  }
+
   .home-buttons {
     flex-direction: column;
-    gap: 24px;
+    gap: 40px;
   }
-  
-  .home-title {
-    font-size: 48px;
-    margin-bottom: 40px;
+
+  .home-button {
+    width: 180px;
+    height: 180px;
+    font-size: 28px;
   }
 }

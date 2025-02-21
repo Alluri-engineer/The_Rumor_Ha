@@ -11,39 +11,29 @@
   background-color: #000000;
   color: white;
   border-radius: 32px;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
   letter-spacing: 0.5px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   border: none;
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
 }
 
 .back-button:hover {
-  transform: translateY(-3px);
-  background-color: #111111;
+  transform: translateY(-2px);
+  background-color: #000000;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .back-button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.back-button::before {
-  content: "←";
-  font-size: 28px;
-  line-height: 1;
-  margin-top: -2px;
-  transition: transform 0.3s ease;
-}
-
-.back-button:hover::before {
-  transform: translateX(-4px);
+  transform: translateY(0);
+  background-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -53,12 +43,10 @@
   }
   
   .back-button {
-    height: 56px;
-    padding: 0 32px;
+    height: 48px;
+    padding: 0 24px;
     font-size: 18px;
-  }
-  
-  .back-button::before {
-    font-size: 24px;
+    min-width: 100px;
+    border-radius: 24px;
   }
 } 

@@ -57,6 +57,11 @@ function Search() {
     });
   };
 
+  const getButtonText = () => {
+    if (!username.trim()) return 'Rumor about them';
+    return `Rumor about ${username}`;
+  };
+
   return (
     <div className="search-container">
       <BackButton />
@@ -92,21 +97,19 @@ function Search() {
 
         {showRumorTypes && (
           <div className="rumor-type-buttons">
-            <RoundedButton
+            <button
               onClick={() => handleRumorTypeSelect('about')}
-              color="#ff69b4"
               className="rumor-type-button"
             >
-              Rumor about him
-            </RoundedButton>
+              {getButtonText()}
+            </button>
             
-            <RoundedButton
+            <button
               onClick={() => handleRumorTypeSelect('with-others')}
-              color="#4169e1"
               className="rumor-type-button"
             >
-              Rumor with Others
-            </RoundedButton>
+              Rumor with other
+            </button>
           </div>
         )}
       </div>
