@@ -1,0 +1,72 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: white;
+}
+
+.home-page-label {
+  display: none;
+}
+
+.home-title {
+  font-size: 64px;
+  margin-bottom: 80px;
+  color: var(--text);
+  font-weight: 400;
+  font-family: 'Segoe Script', cursive;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 48px;
+}
+
+.home-button {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: #FFC0CB;
+  color: #000;
+}
+
+.search-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3);
+}
+
+.post-button {
+  background-color: #64A5FF;
+  color: #fff;
+}
+
+.post-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(100, 165, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .home-buttons {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .home-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+}

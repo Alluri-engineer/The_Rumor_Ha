@@ -1,0 +1,64 @@
+.back-button-container {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 1000;
+}
+
+.back-button {
+  height: 64px;
+  padding: 0 40px;
+  background-color: #000000;
+  color: white;
+  border-radius: 32px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  background-color: #111111;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-button::before {
+  content: "←";
+  font-size: 28px;
+  line-height: 1;
+  margin-top: -2px;
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover::before {
+  transform: translateX(-4px);
+}
+
+@media (max-width: 768px) {
+  .back-button-container {
+    top: 24px;
+    right: 24px;
+  }
+  
+  .back-button {
+    height: 56px;
+    padding: 0 32px;
+    font-size: 18px;
+  }
+  
+  .back-button::before {
+    font-size: 24px;
+  }
+} 
