@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/The_Rumor_Ha/static/css/main.15f84080.css",
+    "main.js": "/The_Rumor_Ha/static/js/main.d7754a31.js",
+    "index.html": "/The_Rumor_Ha/index.html",
+    "main.15f84080.css.map": "/The_Rumor_Ha/static/css/main.15f84080.css.map",
+    "main.d7754a31.js.map": "/The_Rumor_Ha/static/js/main.d7754a31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15f84080.css",
+    "static/js/main.d7754a31.js"
+  ]
+}
