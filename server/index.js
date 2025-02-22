@@ -4,7 +4,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const mongoUrl = 'mongodb://127.0.0.1:27017'; // Using IP instead of localhost
+const mongoUrl = 'mongodb://the-rumor-account:IJcZvHh7Aq0wdQI9djTDNNxH7Ur2Et2vCVwQPXD98CdaoJmOx4Q5e0Sk4wwWaBreTchYBu6YLz4XACDbtLa7KQ==@the-rumor-account.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@the-rumor-account@';
 const dbName = 'rumorApp';
 
 app.use(cors());
@@ -18,17 +18,21 @@ const connectToMongo = async (retries = 5, delay = 5000) => {
   for (let i = 0; i < retries; i++) {
     try {
       mongoClient = await MongoClient.connect(mongoUrl, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
         serverSelectionTimeoutMS: 5000,
-        directConnection: true
+        ssl: true,
+        retryWrites: false,
+        maxIdleTimeMS: 120000
       });
-      console.log('Connected to MongoDB');
+      console.log('Connected to Azure Cosmos DB');
       db = mongoClient.db(dbName);
       
       // Create index on usernames field
       await db.collection('rumors').createIndex({ usernames: 1 });
       return true;
     } catch (err) {
-      console.error(`Attempt ${i + 1}/${retries} - Error connecting to MongoDB:`, err.message);
+      console.error(`Attempt ${i + 1}/${retries} - Error connecting to Azure Cosmos DB:`, err.message);
       if (i < retries - 1) {
         console.log(`Retrying in ${delay/1000} seconds...`);
         await new Promise(resolve => setTimeout(resolve, delay));
