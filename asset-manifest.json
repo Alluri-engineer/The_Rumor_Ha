@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/The_Rumor_Ha/static/css/main.15f84080.css",
-    "main.js": "/The_Rumor_Ha/static/js/main.a5759b04.js",
+    "main.css": "/The_Rumor_Ha/static/css/main.3aa9ee51.css",
+    "main.js": "/The_Rumor_Ha/static/js/main.6a196127.js",
     "index.html": "/The_Rumor_Ha/index.html",
-    "main.15f84080.css.map": "/The_Rumor_Ha/static/css/main.15f84080.css.map",
-    "main.a5759b04.js.map": "/The_Rumor_Ha/static/js/main.a5759b04.js.map"
+    "main.3aa9ee51.css.map": "/The_Rumor_Ha/static/css/main.3aa9ee51.css.map",
+    "main.6a196127.js.map": "/The_Rumor_Ha/static/js/main.6a196127.js.map"
   },
   "entrypoints": [
-    "static/css/main.15f84080.css",
-    "static/js/main.a5759b04.js"
+    "static/css/main.3aa9ee51.css",
+    "static/js/main.6a196127.js"
   ]
 }
