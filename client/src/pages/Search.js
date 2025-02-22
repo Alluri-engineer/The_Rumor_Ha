@@ -42,6 +42,12 @@ function Search() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleVerify();
+    }
+  };
+
   const handleSearch = () => {
     if (username && isVerified) {
       setShowRumorTypes(true);
@@ -65,6 +71,7 @@ function Search() {
   return (
     <div className="search-container">
       <BackButton />
+      <h1 className="home-title">Rumor !</h1>
       <div className="search-content">
         <div className="search-input-section">
           <RoundedInput
@@ -74,6 +81,7 @@ function Search() {
               setIsVerified(false);
               setShowRumorTypes(false);
             }}
+            onKeyPress={handleKeyPress}
             placeholder="Enter username"
           />
           <RoundedButton

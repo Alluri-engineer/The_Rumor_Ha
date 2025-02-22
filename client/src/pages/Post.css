@@ -1,13 +1,23 @@
 .post-container {
-  max-width: 600px;
+  max-width: 800px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 80px 24px 40px;
   background-color: var(--background);
+  position: relative;
+}
+
+.home-title {
+  font-size: 96px;
+  color: #000000;
+  font-family: 'Segoe Script', cursive;
+  font-weight: 400;
+  letter-spacing: -1px;
+  text-align: center;
+  line-height: 1;
+  transform: rotate(-2deg);
+  margin-bottom: 60px;
+  margin-top: -20px;
 }
 
 .post-content {
@@ -184,9 +194,15 @@
 
 @media (max-width: 768px) {
   .post-container {
-    padding: 20px;
+    padding: 60px 16px 24px;
   }
-  
+
+  .home-title {
+    font-size: 64px;
+    margin-bottom: 40px;
+    margin-top: -10px;
+  }
+
   .post-content {
     padding: 24px;
   }

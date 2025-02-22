@@ -37,6 +37,12 @@ function Post() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleVerify();
+    }
+  };
+
   const handleAddUsername = () => {
     if (username && isVerified && !usernames.includes(username)) {
       if (usernames.length >= MAX_USERNAMES) {
@@ -89,6 +95,7 @@ function Post() {
   return (
     <div className="post-container">
       <BackButton />
+      <h1 className="home-title">Rumor !</h1>
       <div className="post-content">
         <div className="username-input-section">
           <RoundedInput
@@ -97,6 +104,7 @@ function Post() {
               setUsername(e.target.value);
               setIsVerified(false);
             }}
+            onKeyPress={handleKeyPress}
             placeholder="Enter username"
           />
           <RoundedButton

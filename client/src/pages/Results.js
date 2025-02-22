@@ -10,7 +10,6 @@ function Results() {
   const [rumors, setRumors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const { username, type } = location.state || {};
 
@@ -37,58 +36,51 @@ function Results() {
     fetchRumors();
   }, [username, type, navigate]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollButton(window.pageYOffset > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   if (loading) {
-    return <div className="results-loading">Loading...</div>;
+    return (
+      <div className="results-container">
+        <BackButton />
+        <div className="results-content">
+          <div className="results-loading">Loading rumors...</div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="results-error">{error}</div>;
+    return (
+      <div className="results-container">
+        <BackButton />
+        <div className="results-content">
+          <div className="results-error">{error}</div>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="results-container">
       <BackButton />
-      <h2 className="results-title">
-        {type === 'about' ? 'Rumors about' : 'Rumors with'} {username}
-      </h2>
-
-      {rumors.length === 0 ? (
-        <div className="no-results">No rumors found</div>
-      ) : (
-        <div className="rumors-list">
-          {rumors.map((rumor, index) => (
-            <div key={index} className="rumor-card">
-              <p className="rumor-message">{rumor.message}</p>
-              <div className="rumor-usernames">
-                {rumor.usernames.join(', ')}
+      <div className="results-content">
+        {rumors.length === 0 ? (
+          <div className="no-results">No rumors found</div>
+        ) : (
+          <div className="rumors-list">
+            {rumors.map((rumor, index) => (
+              <div key={index} className="rumor-card">
+                <p className="rumor-message">{rumor.message}</p>
+                <div className="rumor-usernames">
+                  {rumor.usernames.map((name, idx) => (
+                    <span key={idx} className="rumor-username-tag">
+                      {name}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
-      <button 
-        className={`scroll-to-top ${showScrollButton ? 'visible' : ''}`}
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-      >
-        ↑
-      </button>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
